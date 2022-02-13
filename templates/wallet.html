@@ -1,0 +1,22 @@
+
+<h1>
+    Hi {{wallet.user}}
+</h1>
+
+Data Balance: {{wallet.Data_balance}} GIG
+<br>
+Name: {{wallet.First_Name}} {{wallet.Last_Name}}
+<br>
+Phone Number: {{wallet.Phone_number}}
+<br>
+Location: {{wallet.City}}
+<br>
+Gender: {{wallet.Gender}}
+<br>
+
+<a href="{% url 'home' %}">HOME</a>
+
+<div>
+    <a href="{% url 'Buy-data' %}">Buy Data</a>
+</div>
+

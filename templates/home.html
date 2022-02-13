@@ -1,0 +1,51 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'style.css' %}">
+
+<div>
+    {% if request.user.is_authenticated %}
+
+    <div class="container">
+        <h1>
+            WELCOME TO sample @{{user.username}}
+        </h1>
+    
+        <div>
+            <p>
+                {% for transact in Transaction %}
+                {% if transact.user == user.username %}
+                Transaction type: {% if transact.Credit == True %} Credit {% else %} Debit {% endif %}
+                <br>
+                Data amount: {{transact.Data_amount}} GIG
+                <br>
+                Transaction ID: {{transact.TransactionID}}
+                <br>
+                Timestamp: {{transact.Timestamp}}
+                <hr>
+                {% endif %}
+                {% endfor %}
+            </p>
+        </div>
+        <a href="{% url 'logout' %}"> logout </a>
+    </div>
+    
+<div>
+    <a href="{% url 'index' %}"> GO BACK</a>
+</div>
+
+<div>
+    <a href="{% url 'wallet' %}">WALLET</a>
+</div>
+
+    {% endif %}
+    
+    <div>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+</div>

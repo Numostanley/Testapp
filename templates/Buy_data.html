@@ -1,0 +1,33 @@
+<h1>
+    Buy Data
+</h1>
+
+<h2>
+    Data Balance: {{wallet.Data_balance}} GIG
+</h2>
+
+
+<h3>
+    BUNDLE PLAN
+</h3>
+{% for Bundle in Bundle %}
+<div>
+    <a href="{% url 'Bundle' Bundle.id %}">{{Bundle.Amount}} GIG for {{Bundle.Price}} NGN </a>
+    <br>
+</div>
+<br>
+{% endfor %}
+
+<!-- <form action="" method="post">
+{% csrf_token %}
+<label for="Data_amount">Data amount in GIG</label>
+<input name="Data_amount" type="text">
+<br>
+<label for="To_wallet">To wallet?</label>
+<input name="To_wallet" type="checkbox">
+<br>
+<button type="submit">
+    Buy
+</button>
+
+</form> -->

@@ -1,0 +1,43 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'style.css' %}">
+
+<div>
+    {% if request.user.is_authenticated %}
+
+    <div class="container">
+        <h1>
+            WELCOME TO sample <a href="{% url 'home' %}">{{user.username}}</a>
+        </h1>
+    
+        <div>
+            <h1>
+                {{Transactions.user}}
+            </h1>
+        </div>
+        <a href="{% url 'logout' %}"> logout </a>
+    </div>
+    
+    {% else %}
+    
+    <div class="container">
+        <h1>
+            WELCOME TO sample
+            
+        </h1>
+    
+        <a href="{% url 'login' %}"> login </a>
+    </div>
+    
+    {% endif %}
+    
+    <div>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+</div>

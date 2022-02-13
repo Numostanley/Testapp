@@ -1,0 +1,31 @@
+<h1>
+    Purchase of {{data.Amount}} GIG
+</h1>
+
+<h2>
+    Enter Your Details
+</h2>
+
+<form action="" method="post">
+{% csrf_token %}
+
+{{form.as_p}}
+<label for="To_wallet">To wallet?</label>
+<input name="To_wallet" type="checkbox">
+<br>
+<br>
+<button type="submit">
+    submit
+</button>
+
+</form>
+
+<div>
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</div>
