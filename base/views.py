@@ -194,7 +194,7 @@ def payment_response(request):
             DataTransactions.objects.create(
             user = request.user.username,
             Data_amount = data.Amount,
-            TransactionID = transaction_id,
+            TransactionID = tx_ref,
             Credit = True,
             To_wallet = True
                 )
