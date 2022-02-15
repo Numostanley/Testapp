@@ -5,6 +5,7 @@ from django.forms import PasswordInput
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_http_methods
 from django.http import HttpResponse
@@ -73,7 +74,9 @@ def logoutUser(request):
 @login_required(login_url='login')
 def home(request):
     user = request.user
-    Transactions = DataTransactions.objects.all()
+    Transactions = DataTransactions.objects.filter(
+        Q(user__icontains=user.username)
+    )
     return render(request, 'home.html', {'Transaction': Transactions}
                   )
 

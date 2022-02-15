@@ -1,6 +1,6 @@
 {% load static %}
 
-<link rel="stylesheet" href="{% static 'style.css' %}">
+<!-- <link rel="stylesheet" href="{% static 'style.css' %}"> -->
 
 <div>
     {% if request.user.is_authenticated %}
@@ -13,7 +13,7 @@
         <div>
             <p>
                 {% for transact in Transaction %}
-                {% if transact.user == user.username %}
+        
                 Transaction type: {% if transact.Credit == True %} Credit {% else %} Debit {% endif %}
                 <br>
                 Data amount: {{transact.Data_amount}} GIG
@@ -22,7 +22,7 @@
                 <br>
                 Timestamp: {{transact.Timestamp}}
                 <hr>
-                {% endif %}
+        
                 {% endfor %}
             </p>
         </div>
