@@ -148,7 +148,7 @@ def Bundle_detail(request, pk):
 
 
 def process_payment(name,email,amount,phone):
-    auth_token = 'FLWSECK-5ed4e3336758240237ac05a2afa94a17-X'
+    auth_token = 'api-key'
     hed = {'Authorization': 'Bearer ' + auth_token}
     
     data = {
@@ -208,7 +208,7 @@ def payment_response(request):
         else:
             
             url = 'https://simhostng.com/api/ussd'
-            params = {'apikey':'2e348467022bf696ff467ac0ccf64c2f27dd0e07f8dcec44c7ccaee026140ff8', 'server':'ERMTNFVCH', 
+            params = {'apikey':'', 'server':'', 
                       'sim': '1', 'number': '*123#', 'ref': ''+str(math.floor(1000000 + random.random()*9000000))}
                     
             response = requests.post(url, params)
